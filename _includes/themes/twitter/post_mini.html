@@ -5,7 +5,7 @@
 <div class="row-fluid post-full">
   <div class="span12">
     <div class="date">
-      <span>{{ post.date | date_to_long_string }}</span>
+      <span>{{ post.date | date: " %B %d, %Y" }}</span>
     </div>
     <div class="content">
       {{ post.content }}
@@ -26,8 +26,8 @@
       {% include JB/tags_list %}
     </ul>
   {% endunless %}  
-
-    <hr />
-    <!-- {% include JB/comments %} -->
+	
+  <br />
+	<a href="{{post.url}}#disqus_thread">Comments</a>
   </div>
 </div>
