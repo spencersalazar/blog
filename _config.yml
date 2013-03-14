@@ -3,8 +3,9 @@
 permalink: /:categories/:year/:month/:day/:title 
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
-auto: true
 pygments: true
+server : false
+destination : ./_site
 
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
@@ -13,7 +14,7 @@ title : Music Hacks
 tagline: "Programming, Music, and Aesthetics"
 author :
   name : Spencer Salazar
-  email : spencer.salazar@gmail.com
+  email : "spencer.salazar@gmail.com"
   github : spencersalazar
   twitter : spencersalazar
 
@@ -25,7 +26,8 @@ author :
 # Else if you are pushing to username.github.com, replace with your username.
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
-production_url : https://ccrma.stanford.edu/~spencer/chuckhacks
+production_url : "https://ccrma.stanford.edu/~spencer/blog"
+base_url : "/blog"
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
@@ -54,7 +56,7 @@ JB :
   #   - Only the following values are falsy: ["", null, false]
   #   - When setting BASE_PATH it must be a valid url.
   #     This means always setting the protocol (http|https) or prefixing with "/"
-  BASE_PATH : https://ccrma.stanford.edu/~spencer/blog/
+  BASE_PATH : "https://ccrma.stanford.edu/~spencer/blog"
 
   # By default, the asset_path is automatically defined relative to BASE_PATH plus the enabled theme.
   # ex: [BASE_PATH]/assets/themes/[THEME-NAME]
@@ -125,3 +127,10 @@ JB :
   #   ./_includes/custom/[HELPER]
   # where [HELPER] is the name of the helper you are overriding.
   
+
+environments:
+  stage: 
+    url: https://ccrma.stanford.edu/~spencer/blog/
+    remote:
+      connection: spencer@ccrma-gate.stanford.edu
+      path: Library/Web/blog/
