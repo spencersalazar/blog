@@ -257,6 +257,16 @@ end # end namespace :theme
 
 env = ENV['env'] || 'stage'
 
+task :make do
+  config_file = '_config.yml'
+  config = YAML.load_file(config_file)
+  
+  command = "jekyll && rsync -avz --delete "
+  command << "-e 'ssh -p #{config['environments'][env]['remote']['port']}' " unless config['environments'][env]['remote']['port'].nil?
+  command << "#{config['destination']}/ #{config['environments'][env]['remote']['connection']}:#{config['environments'][env]['remote']['path']}"
+  sh command
+end
+
 task :deploy do
   config_file = '_config.yml'
   config = YAML.load_file(config_file)
